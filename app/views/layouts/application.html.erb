@@ -26,6 +26,12 @@
     
       <section class="top-bar-section">
         
+        <ul class="left">
+          <li>
+            <%= link_to 'Patients', patients_path %>
+          </li>
+        </ul>
+        
         <ul class="right">
           <% if user_signed_in? %>
             <li class="active">
