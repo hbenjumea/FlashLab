@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :born %><br>
-    <%= f.date_select :born %>
+    <%= f.date_select :born, :start_year => 1900 %>
   </div>
   <div class="field">
     <%= f.label :genre %><br>
-    <%= f.text_field :genre %>
+    <%= f.select :genre, options_for_select(['Masculino','Femenino']) %>
   </div>
   <div class="actions">
     <%= f.submit %>

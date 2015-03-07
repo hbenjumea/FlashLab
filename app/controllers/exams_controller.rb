@@ -1,11 +1,13 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :index, :create, :edit, :update, :destroy]
+  
+  before_action :get_patients
   
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.all
+    @exams = Exam.order("created_at DESC")
   end
 
   # GET /exams/1
@@ -72,4 +74,9 @@ class ExamsController < ApplicationController
     def exam_params
       params.require(:exam).permit(:name, :description, :publication, :patient_name, :state, :patient_id)
     end
+    
+    def get_patients
+      @patients = Patient.order("name").map {|patient| [patient.name,patient.id]}
+    end
+    
 end

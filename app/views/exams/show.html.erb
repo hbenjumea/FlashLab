@@ -22,7 +22,11 @@
 
 <p>
   <strong>State:</strong>
-  <%= @exam.state %>
+    <%if(@exam.state==true)%>
+      <%='Realizado'%>
+    <%else%>
+      <%='Pendiente'%>
+    <%end%>
 </p>
 
 <p>

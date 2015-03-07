@@ -21,19 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :publication %><br>
-    <%= f.date_select :publication %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_name %><br>
-    <%= f.text_field :patient_name %>
+    <%= f.date_select :publication, :start_year => 1900 %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.check_box :state %>
+    <%= f.check_box :state %> (Pendiente o Realizado)
   </div>
   <div class="field">
     <%= f.label :patient_id %><br>
-    <%= f.number_field :patient_id %>
+    <%= f.select :patient_id, options_for_select(@patients) %>
   </div>
   <div class="actions">
     <%= f.submit %>
