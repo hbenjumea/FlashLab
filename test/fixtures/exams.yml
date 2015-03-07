@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  publication: 2015-03-07
+  patient_name: MyString
+  state: false
+  patient_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  publication: 2015-03-07
+  patient_name: MyString
+  state: false
+  patient_id: 1
