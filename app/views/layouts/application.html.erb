@@ -17,41 +17,32 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <%= link_to root_path do %>
-              <%= image_tag('home.png') %> Home
-            <% end %>
+            <%= link_to 'Inicio', root_path %>
           </h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-
+    
       <section class="top-bar-section">
+        
         <ul class="right">
           <% if user_signed_in? %>
-              <li class="active">
-                  <%= link_to edit_user_registration_path do %>
-                    <%= image_tag('user.png') %> <%= current_user.name %>
-                  <% end %>
-              </li>
-              <li>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= image_tag('logout.png') %> Sign Out
-                  <% end %>
-              </li>
-          <% else%>
-              <li>
-                  <%= link_to new_user_registration_path do %>
-                    <%= image_tag('signup.png') %> Sign Up
-                  <% end %>
-              </li>
-              <li class="active">
-                  <%= link_to new_user_session_path do %>
-                    <%= image_tag('signin.png') %> Sign in
-                  <% end %>
-              </li>
-          <% end%>
+            <li class="active">
+              <%= link_to current_user.name.upcase, edit_user_registration_path %>            </li>
+            <li>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="active">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to 'Sign In', user_session_path %>
+            </li>
+          <% end %>
         </ul>
+        
       </section>
     </nav>
 
@@ -75,7 +66,11 @@
     <% end %>
 
 
-    <%= yield %>
+    <div class="row">
+      <div class="columns large-12">
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
